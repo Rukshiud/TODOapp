@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow - To-Do</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Firebase Compatibility SDK (Simple Way) -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+  <!-- Login Screen -->
+<div id="loginScreen" class="screen">
+  <div class="login-box">
+    <h1>🔐 TaskFlow</h1>
+    <p class="subtitle">Secure To-Do List</p>
+    
+    <input type="email" id="email" placeholder="Enter your email" autocomplete="off">
+    <input type="password" id="password" placeholder="Password">
+    
+    <button onclick="login()">Login</button>
+    
+    <div class="login-footer">
+      <button onclick="showRegister()" class="link-btn">Create Account</button>
+      <button onclick="forgotPassword()" class="forgot-btn">Forgot Password?</button>
+    </div>
+  </div>
+</div>
+
+<!-- Register Screen -->
+<div id="registerScreen" class="screen hidden">
+  <div class="login-box">
+    <h1>Create Account</h1>
+    <input type="email" id="regEmail" placeholder="Enter your email">
+    <input type="password" id="regPassword" placeholder="Choose Password">
+    <button onclick="registerUser()">Create Account</button>
+    <button onclick="backToLogin()" class="link-btn">Back to Login</button>
+  </div>
+</div>
+  <!-- Main App -->
+  <div id="appScreen" class="screen hidden">
+    <div class="app-container">
+      <header>
+        <h1>✅ TaskFlow</h1>
+        <button onclick="logout()" class="logout-btn">Logout</button>
+      </header>
+      <div class="add-task">
+        <input type="text" id="taskInput" placeholder="What needs to be done?">
+        <input type="datetime-local" id="dueDateTime">
+        <button onclick="addTask()">Add Task</button>
+      </div>
+      <ul id="taskList"></ul>
+    </div>
+  </div>
+  <!-- Alarm Modal -->
+  <div id="alarmModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>⏰ Alarm Ringing!</h2>
+      <p id="alarmTaskText" class="alarm-text"></p>
+     
+      <div class="modal-buttons">
+        <button onclick="snoozeAlarm()" class="snooze-btn">⏰ Snooze (5 min)</button>
+        <button onclick="stopAlarm()" class="stop-alarm-btn">Stop Alarm</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+ 
+Login button isn't working

@@ -1,0 +1,305 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  min-height: 100vh;
+  padding: 15px;
+}
+
+.screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.hidden { display: none !important; }
+
+/* Login Screen */
+.login-box {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-box h1 {
+  font-size: 32px;
+  color: #4f46e5;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 16px;
+  margin: 12px 0;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 17px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 16px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-box button:hover {
+  background: #4338ca;
+}
+
+.forgot-btn {
+  background: none;
+  border: none;
+  color: #64748b;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+/* Main App */
+.app-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  width: 100%;
+  max-width: 700px;
+  overflow: hidden;
+}
+
+header {
+  background: #4f46e5;
+  color: white;
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 26px;
+}
+
+.logout-btn {
+  padding: 8px 18px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-task {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.add-task input {
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+.add-task button {
+  padding: 0 28px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Task List */
+#taskList {
+  list-style: none;
+  padding: 15px;
+  max-height: 65vh;
+  overflow-y: auto;
+}
+
+#taskList li {
+  background: #f8fafc;
+  margin-bottom: 12px;
+  padding: 18px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: 0.2s;
+}
+
+#taskList li:hover {
+  transform: translateY(-2px);
+}
+
+#taskList li.completed {
+  opacity: 0.75;
+  text-decoration: line-through;
+}
+
+.task-info {
+  flex: 1;
+}
+
+.task-info strong {
+  font-size: 17.5px;
+  display: block;
+}
+
+.due-time {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 6px;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Alarm Modal */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.alarm-text {
+  font-size: 20px;
+  margin: 20px 0;
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.stop-alarm-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.stop-alarm-btn:hover {
+  background: #dc2626;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .add-task {
+    grid-template-columns: 1fr;
+  }
+  .login-box, .modal-content {
+    margin: 15px;
+    padding: 30px 20px;
+  }
+}
+
+/* Modal Buttons */
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.snooze-btn {
+  background: #f59e0b;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.snooze-btn:hover {
+  background: #d97706;
+}
+
+.stop-alarm-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.stop-alarm-btn:hover {
+  background: #dc2626;
+}
+
+@media (max-width: 500px) {
+  .modal-buttons {
+    flex-direction: column;
+  }
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #4f46e5;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.login-footer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
